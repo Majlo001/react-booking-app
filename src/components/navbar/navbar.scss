@@ -1,0 +1,36 @@
+.navbar{
+    height: 60px;
+    background-color: #003580;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar--container{
+    width: 100%;
+    max-width: 1360px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 24px;
+}
+.navbar--btn{
+    padding: 6px 12px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-weight: 400;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover{
+        background-color: white;
+        color: #003580;
+        border: 2px solid #003580;
+    }
+}
+.btn--login{
+    margin-right: 16px;
+}
