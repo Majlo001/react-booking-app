@@ -6,17 +6,22 @@ import Footer from '../../components/footer/Footer'
 import MailList from '../../components/mailList/MailList'
 import PropertyList from '../../components/propertyList/PropertyList'
 import FeaturedProperties from '../../components/featuredProperties/FeaturedProperties'
+import Featured from '../../components/featured/Featured'
 
 const Home = () => {
   return (
     <main className="home">
         <Navbar />
         <Header />
-        <h1 className="home--title">Browse by property type</h1>
-        <PropertyList/>
-        <h1 className="home--title">Homes guests love</h1>
-        <FeaturedProperties />
-        <MailList />
+
+        <div className="home--container">
+          <h1 className="home--title">Browse by property type</h1>
+          <Featured />
+          <PropertyList/>
+          <h1 className="home--title">Homes guests love</h1>
+          <FeaturedProperties />
+          <MailList />
+        </div>
         <Footer />
     </main>
   )

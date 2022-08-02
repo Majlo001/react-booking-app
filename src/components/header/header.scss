@@ -10,6 +10,11 @@
     max-width: 1200px;
     margin: 20px 0 60px 0;
 }
+.header--container.list--mode{
+  margin: 20px 0 20px 0;
+}
+
+
 .header--list{
     display: flex;
     gap: 40px;
@@ -126,7 +131,7 @@
 .options {
   z-index: 2;
   position: absolute;
-  top: 50px;
+  top: 53px;
   background-color: white;
   color: gray;
   border-radius: 5px;
@@ -139,6 +144,7 @@
   display: flex;
   justify-content: space-between;
   margin: 10px;
+  align-items: center;
 }
 
 .option--counter{
@@ -160,8 +166,26 @@
   color: #0071c2;
   cursor: pointer;
   background-color: white;
+  transition: all .3s;
+  font-weight: 700;
   
   &:disabled {
-    cursor: not-allowed;
+    border: 1px solid gray;
+    color: gray;
+    
+    &:hover{
+      background-color: white;
+      color: gray;
+    }
   }
+
+  &:hover{
+    background-color: #0071c2;
+    color: white;
+  }
+}
+
+
+.rdrCalendarWrapper{
+  z-index: 99;
 }
