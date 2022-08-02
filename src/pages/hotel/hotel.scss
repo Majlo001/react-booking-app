@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    position: relative
 }
   
 .hotel--wrapper {
@@ -109,17 +110,18 @@
     border-radius: 5px;
 }
 
-  
+
 .slider{
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.613);
-    z-index: 999;
+    z-index: 9999;
     display: flex;
     align-items: center;
+    transition: all .3s;
 }
 .slider--wrapper{
     width: 100%;
@@ -129,7 +131,7 @@
     align-items: center;
 }
 .slider--img{
-    width: 80%;
+    max-width: 80%;
     height: 80vh;
 }
 .close{
