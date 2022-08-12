@@ -10,12 +10,16 @@ import { faCircleArrowLeft, faCircleXmark, faLocationDot, faCircleArrowRight } f
 import { useLocation } from "react-router-dom";
 import useFetch from '../../hooks/useFetch';
 import { SearchContext } from '../../context/searchContext';
+import { AuthContext } from "../../context/authContext";
+import { useNavigate } from "react-router-dom";
+import Reserve from '../../components/reserve/Reserve'
 
 
 
 const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -32,8 +36,8 @@ const Hotel = () => {
     return diffDays;
   }
 
+  
   const days = dayDifference(dates[0].endDate, dates[0].startDate);
-
 
 
   const handleOpen = (i) => {
@@ -50,6 +54,18 @@ const Hotel = () => {
     }
 
     setSlideNumber(newSliderNoumber)
+  }
+
+
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if(user){
+      setOpenModal(true);
+    } else {
+      navigate("/login");
+    }
   }
 
 
@@ -108,7 +124,7 @@ const Hotel = () => {
               <h2>
                 <b>${days * data.cheapestPrice * options.room}</b> ({days} nights)
               </h2>
-              <button>Reserve or Book Now!</button>
+              <button onClick={handleClick}>Reserve or Book Now!</button>
             </div>
           </div>
         </div>
@@ -116,6 +132,7 @@ const Hotel = () => {
         <Footer />
 
       </div>)}
+      {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>}
     </div>
   )
 }
